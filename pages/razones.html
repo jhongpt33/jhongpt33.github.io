@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Razones por la cual te quiero para toda la vida</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="page-container">
+        <div class="page-box">
+            <h1>Razones por la cual te quiero para toda la vida</h1>
+            <div class="content">
+                <textarea id="reasonsContent" class="page-textarea">Hay muchas razones por las cuales te quiero para toda mi vida siento que eres mi complemento la mujer que me impulsa para salir a delante junto con mi mami por la cual me esfuerzo para darle todo lo que se merece para ti siempre voy a estar yo quiero estar a tu lado todos los dias eres mi vida, inspiración motor y motivo te amo con toda mi alma, te presente a toda mi famila y todos te quieren hasta mi abue que la vamos a visitar de vez en cuando. 
+
+Nos apoyamos mutuamente si me falta algo me apoyas y viceversa se que a veces peleamos pero siempre lo resolvemos no somos perfectos tenemos diferencias y todo pero sos mi mundo eres la mujer de mis sueños 
+
+Quiero tener mucho mas viajes a tu lado mas historias para contarles a nuestros hijos porque si seras una excelente mama y los vamos a tener bien educados 
+
+Soy el amor de tu vida &lt;3
+
+Muaaaa te mando miles de besos</textarea>
+            </div>
+            <div class="button-group">
+                <button class="btn-save" onclick="saveReasons()">Guardar</button>
+                <button class="btn-back" onclick="window.history.back()">Volver</button>
+            </div>
+            <p id="mensajeReasons" class="mensaje"></p>
+        </div>
+    </div>
+    <script>
+        function saveReasons() {
+            const content = document.getElementById('reasonsContent').value;
+            localStorage.setItem('reasons', content);
+            const mensaje = document.getElementById('mensajeReasons');
+            mensaje.textContent = '¡Guardado!';
+            mensaje.classList.add('success');
+            setTimeout(() => {
+                mensaje.textContent = '';
+                mensaje.classList.remove('success');
+            }, 2000);
+        }
+        
+        window.addEventListener('load', () => {
+            const saved = localStorage.getItem('reasons');
+            if (saved) {
+                document.getElementById('reasonsContent').value = saved;
+            }
+        });
+    </script>
+</body>
+</html>
